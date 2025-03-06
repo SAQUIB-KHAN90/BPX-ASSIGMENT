@@ -1,3 +1,6 @@
+1- I am using comments to sperate the logics and made it easy to understand the code
+
+
 # ExpandableTable
 
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.1.
