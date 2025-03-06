@@ -1,0 +1,35 @@
+<table>
+    <!-- Parent Rows -->
+    <tr *ngFor="let row of data" [class.selected]="isRowSelected(row.id)">
+      <td>
+        <!-- Toggle button for expanding/collapsing children -->
+        <button (click)="toggleChildren(row)">{{ row.expanded ? '-' : '+' }}</button>
+        <!-- Row content -->
+        <span (click)="toggleRowSelection(row.id)">{{ row.text1 }} - {{ row.text2 }}</span>
+      </td>
+    </tr>
+  
+    <!-- Child Rows -->
+    <ng-container *ngFor="let row of data">
+      <ng-container *ngFor="let child of row.children">
+        <tr *ngIf="row.expanded" [class.selected]="isRowSelected(child.id)">
+          <td style="padding-left: 20px;">
+            <!-- Toggle button for expanding/collapsing nested children -->
+            <button (click)="toggleChildren(child)">{{ child.expanded ? '-' : '+' }}</button>
+            <!-- Child row content -->
+            <span (click)="toggleRowSelection(child.id)">{{ child.text1 }} - {{ child.text2 }}</span>
+          </td>
+        </tr>
+  
+        <!-- Nested Child Rows -->
+        <ng-container *ngFor="let nestedChild of child.children">
+          <tr *ngIf="child.expanded" [class.selected]="isRowSelected(nestedChild.id)">
+            <td style="padding-left: 40px;">
+              <!-- Nested child row content -->
+              <span (click)="toggleRowSelection(nestedChild.id)">{{ nestedChild.text1 }} - {{ nestedChild.text2 }}</span>
+            </td>
+          </tr>
+        </ng-container>
+      </ng-container>
+    </ng-container>
+  </table>

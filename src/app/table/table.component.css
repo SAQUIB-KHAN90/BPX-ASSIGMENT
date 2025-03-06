@@ -1,0 +1,17 @@
+.selected {
+  background-color: lightblue; /* Change this to your desired color */
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+td {
+  padding: 8px;
+  border: 1px solid #ddd;
+}
+
+button {
+  margin-right: 10px;
+}

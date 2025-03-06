@@ -1,12 +1,10 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { TableComponent } from './table/table.component';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
-  templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  standalone: true,
+  imports: [TableComponent],
+  template: `<app-table></app-table>`,
 })
-export class AppComponent {
-  title = 'expandable-table';
-}
+export class AppComponent {}
